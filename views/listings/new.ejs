@@ -1,0 +1,90 @@
+<% layout("layouts/boilerplate") %>
+
+    <body>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <br>
+                <br>
+                <h2 class="mb-3">Add New List</h2>
+
+                <form action="/listings" method="post" novalidate class="needs-validation"
+                    enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input name="listing[title]" type="text" class="form-control" placeholder="Enter Title"
+                            required>
+                        <div class="valid-feedback">
+                            Title Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="listing[description]" class="form-control" type="text"
+                            placeholder="Enter Description" required></textarea>
+                        <div class="valid-feedback">
+                            Description Looks good!
+                        </div>
+
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label class="form-label" for="image">Upload Your Image</label>
+                        <input type="file" name="listing[image]" class="form-control" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="price" class="form-label">Price</label>
+                            <input name="listing[price]" required class="form-control" placeholder="Enter Price ">
+                            <div class="invalid-feedback">
+                                Price Must Be a Valid!
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-8">
+                            <label for="location" class="form-label"> Location</label>
+                            <input type="text" class="form-control" name="listing[location]"
+                                placeholder="Enter Location" required>
+                            <div class="invalid-feedback">
+                                Location Must Be Valid!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="mb-3 col-md-8">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" name="listing[country]" placeholder="Enter Country"
+                                required>
+                            <div class="invalid-feedback">
+                                Country Must Be Valid!
+                            </div>
+                        </div>
+                        <!-- Example single danger button -->
+                        <div class="mb-3 col-md-4">
+                            <label for="Category" class="form-label">Choose Category *</label>
+                            <br>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger dropdown-toggle categorybutton" onclick="setButtonText()"
+                                    data-bs-toggle="dropdown" aria-expanded="false" name="categorybuttontext">
+                                    Choose An Option
+                                </button>
+                                <input type="hidden" name="listing[category]" id="categorybuttontext" value="Home">
+                                <ul class="dropdown-menu categorybox">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn add-btn">Submit</button>
+                    <br>
+                    <br>
+
+                </form>
+
+            <p class="mb-3">* if you dont Choose the  Home Will Be Default </p>
+            </div>
+        </div>
+    </body>
+    <script src="/js/category.js"></script>

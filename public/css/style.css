@@ -1,0 +1,151 @@
+body {
+    display: flex !important;
+    flex-direction: column !important;
+
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+
+    flex: 1 !important;
+}
+
+.icontag {
+    font-size: 1.8rem;
+    color: #fe424d;
+}
+
+nav {
+    height: 4rem;
+}
+
+.itemsnav {
+    font-size: 1rem;
+    justify-content: start !important;
+    width: 100% !important;
+    margin-left: 0.8rem;
+    /* align-items: center; */
+}
+
+.usersbtn {
+    font-size: 1rem;
+    justify-content: end !important;
+    width: 100% !important;
+    margin-left: 0.8rem;
+    /* align-items: center; */
+}
+
+.outer {
+    background-color: rgb(243, 238, 238);
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* position: fixed;  */
+    /* width: 100%; */
+    /* left: 0;
+    bottom: 0;  */
+}
+
+.inner {
+    height: 2rem;
+    font-size: 1rem;
+}
+
+.outer a {
+    text-decoration: none;
+    color: rgb(63, 49, 49);
+}
+
+.outer a:hover {
+    text-decoration: underline;
+}
+
+.inner i {
+    font-size: 1.2rem;
+
+}
+
+.listing-card {
+    border: none !important;
+    padding: 4px;
+    /* height: ; */
+    /* width: 16px !important; */
+    margin-bottom: 2rem;
+    padding: 0;
+    /* margin: 0; */
+}
+
+
+.card-img-top {
+    border-radius: 1rem !important;
+    /* width: 100% !important; */
+    height: 16rem;
+    object-fit: cover !important;
+
+}
+
+.card-body {
+    padding: 0 !important;
+    font-weight: 600;
+}
+
+.ankercard {
+    text-decoration: none !important;
+    /* padding: 0 !important; 
+    margin: 0; */
+}
+
+.ankercard :hover {
+    opacity: 90%;
+}
+
+.add-btn {
+    background-color: #fe424d !important;
+    color: white !important;
+}
+
+.show-img {
+    height: 30vh;
+    border-radius: 10px;
+    /* width: auto; */
+    object-fit: cover;
+}
+
+.show-link {
+    text-decoration: none;
+    color: white;
+}
+
+.show-div {
+    display: flex;
+    /* padding: 10px; */
+
+}
+
+.delete-btn {
+    background-color: #222222 !important;
+    color: white !important;
+}
+
+
+.card-review {
+    border: none !important;
+}
+
+p {
+    font-weight: 400;
+}
+
+
+/* maps  */
+#map {
+    height:50vh;
+    width:90vh;
+}

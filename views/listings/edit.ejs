@@ -1,0 +1,85 @@
+<% layout("./layouts/boilerplate") %>
+
+    <body>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h3>Listing Edit Details</h3>
+                <form action="/listings/<%=listings.id %>?_method=PUT" method="post" novalidate enctype="multipart/form-data"
+                    class="needs-validation">
+                    <div class="mb-3">
+                        <label for="title" class="form-label"> Title</label>
+                        <input name="listing[title]" class="form-control" type="text" placeholder="Enter Title"
+                            value="<%=listings.title%>" required>
+                            <div class="valid-feedback">
+                                Title Looks good!
+                            </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label"> Description</label>
+                        <textarea name="listing[description]" type="text" class="form-control"
+                            placeholder="Enter Description" required><%=listings.description%></textarea>
+                            <div class="invalid-feedback">
+                                Description Must Be Short!
+                            </div>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Original Listing Image</h4>
+                        <img src="<%=originalurl%>" alt="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image/Link</label>
+                        <input name="listing[image]" class="form-control" type="file"
+                            placeholder="Enter Image Link">
+                            <div class="invalid-feedback">
+                                Please Enter A Valid URL!
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-4 mb-3">
+                            <label for="Price" class="form-label">Price</label>
+                            <input type="number" class="form-control" name="listing[price]" placeholder="Enter Price "
+                                value="<%=listings.price%>" required>
+                                <div class="invalid-feedback">
+                                    Price Must Be Valid!
+                                </div>
+                        </div>
+                        <div class=" col-md-8 mb-3">
+                            <label for="Location" class="form-label">Location</label>
+                            <input type="text" class="form-control" name="listing[location]"
+                                placeholder="Enter Location" value="<%=listings.location%>" required>
+                                <div class="invalid-feedback">
+                                    Location Must Be Valid!
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" name="listing[country]" placeholder="Enter Country"
+                            value="<%=listings.country%>" required>
+                            <div class="invalid-feedback">
+                                Country Must Be Valid!
+                            </div>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="Category" class="form-label">Choose Category *</label>
+                        <br>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-danger dropdown-toggle categorybutton" onclick="setButtonText()"
+                                data-bs-toggle="dropdown" aria-expanded="false" name="categorybuttontext">
+                                Choose An Option
+                            </button>
+                            <input type="hidden" name="listing[category]" id="categorybuttontext" value="Home">
+                            <ul class="dropdown-menu categorybox">
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                    <button class="btn add-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script src="/js/category.js"></script>

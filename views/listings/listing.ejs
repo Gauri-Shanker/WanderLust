@@ -1,0 +1,101 @@
+<% layout("layouts/boilerplate") %>
+    <style>
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .filter {
+            text-align: center;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+            margin-left: 1rem;
+        }
+
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .filter-container {
+            display: flex;
+            /* flex-wrap: wrap; */
+            justify-content: space-between;
+        }
+        
+        
+    </style>
+
+    <body>
+        <div class="filter-container">
+            <div id="filters">
+                <div class="filter">
+                    <i class="fa-solid fa-fire"></i>
+                    <p>Home</p>
+                </div>
+                <div class="filter">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                    <p>Beach</p>
+                </div>
+                <div class="filter">
+                    <i class="fa-solid fa-bed"></i>
+                    <p>Rooms</p>
+                </div>
+                <div class="filter">
+                    <i class="ri-hotel-line"></i>
+                    <p>Hotel</p>
+                </div>
+                <div class="filter">
+                    <i class="ri-home-heart-fill"></i>
+                    <p>Huts</p>
+                </div>
+                <div class="filter">
+                    <i class="ri-truck-fill"></i>
+                    <p>Camper Vans</p>
+                </div>
+                <div class="filter">
+                    <i class="ri-sailboat-fill"></i>
+                    <p>HouseBoat</p>
+                </div>
+                <div class="filter">
+                    <i class="fa-solid fa-mountain-city"></i>
+                    <p>Caves</p>
+                </div>
+                
+            </div>
+            <div class="filter">
+                <form class="d-flex" role="search" action="/listings">
+                    <input class="form-control me-2" name="search" type="search" placeholder="Search Destinations" aria-label="Search">
+                    <button class="add-btn btn"  type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1">
+            <% for(let listing of listingdata ){ %>
+                <a class="ankercard" href="/listings/<%=listing.id %>">
+                    <div class="card listing-card">
+                        <img src="<%=listing.image.url%>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <%= listing.title %> <br> &#8377; <%=listing.price%>/ night
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+    </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".filter").forEach(filter=>{
+        filter.addEventListener('click',function(){
+            const category=this.querySelector("p").textContent.trim();
+            console.log(category);
+            window.location.href=`/listings?category=${encodeURIComponent(category)}`
+        });
+    });
+    
+});
+
+</script>
