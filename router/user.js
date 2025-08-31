@@ -8,6 +8,10 @@ const passport = require("passport")
 const {saveRedirectUrl}=require('../middleware.js')
 const userController=require("../controllers/users.js")
 const {isLoggedIn}=require("../middleware.js")
+const lisitingcontroller = require("../controllers/listings.js");
+
+router.route("/")
+.get( wrapAsync(lisitingcontroller.allListingRoute))
 
 router.route("/signup")
 .get( userController.renderSignUpform)
